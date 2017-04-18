@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "spring.ws.uri",
+    "type": "java.lang.String",
+    "description": "target ep"
+  },
+  {
+    "name": "spring.ws.soapaction",
+    "type": "java.lang.String",
+    "description": "target soap action"
+  },
+  {
+    "name": "spring.rabbitmq.listener.queue",
+    "type": "java.lang.String",
+    "description": "name of queue"
+  },
+  {
+    "name": "spring.rest.uri",
+    "type": "java.lang.String",
+    "description": "uri of inbound api"
+  }
+]}

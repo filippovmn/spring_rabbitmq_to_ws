@@ -1,0 +1,4 @@
+org\example\rabbitmqListener\amqp\SampleAmqpSimpleApplication.class
+org\example\rabbitmqListener\amqp\Sender.class
+org\example\rabbitmqListener\amqp\SampleAmqpSimpleApplication$1.class
+org\example\rabbitmqListener\amqp\WebServiceClient.class
