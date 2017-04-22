@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/rabbitmqListener/target/m2e-wtp/web-resources/META-INF/maven/org.example/rabbitmqListener/rabbitmqListener.iml" filepath="$PROJECT_DIR$/rabbitmqListener/target/m2e-wtp/web-resources/META-INF/maven/org.example/rabbitmqListener/rabbitmqListener.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rabbitmqListener/rabbitmqListener (1).iml" filepath="$PROJECT_DIR$/rabbitmqListener/rabbitmqListener (1).iml" />
+    </modules>
+  </component>
+</project>

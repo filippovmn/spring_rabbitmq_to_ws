@@ -1,0 +1,17 @@
+spring:
+  rabbitmq:
+    host : localhost
+    port : 5672
+    virtual-host : test
+    username : guest
+    password : guest
+    listener:
+      acknowledge-mode: MANUAL
+      queue : testConsumer
+  ws : 
+    uri : http://localhost:8281/services/echo.echoHttpSoap11Endpoint
+    soapaction : urn:echoInt
+  rest :
+    uri : http://localhost:8281/rabbitMessage/add
+server:
+    port: 9191

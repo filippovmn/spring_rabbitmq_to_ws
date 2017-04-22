@@ -16,13 +16,12 @@
 
 package org.example.rabbitmqListener.amqp;
 
-import org.springframework.amqp.core.AcknowledgeMode;
 import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageListener;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
+import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -34,19 +33,11 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.handler.annotation.Header;
+import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor;
-import org.springframework.web.client.RestTemplate;
 
 import com.rabbitmq.client.Channel;
-
-import java.io.IOException;
-
-import javax.xml.transform.stream.StreamResult;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -98,21 +89,22 @@ public class SampleAmqpSimpleApplication extends SpringBootServletInitializer  {
 	public SimpleMessageListenerContainer container() {
 		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(
 				this.connectionFactory);
-		MessageListener listener = new MessageListener() {
-			//@SuppressWarnings("unused")
-			public void onMessage(Message message) {
-				//System.out.println(new String(message));
-				//StreamResult result=client.customSendAndReceive(new String(message));
-				//if (result.toString().toLowerCase().contains("fault")){channel.basicNack(0, false, false);}
-				//System.out.println(result.toString());
-				try{
-					String body=new String(message.getBody());
-					String id=new String(message.getMessageProperties().getHeaders().get("io_id").toString());
-					String xml=String.format("<request><message>%s</message><i_o_id>%s</i_o_id></request>",body,id);					
-					boolean result=restClient.send(xml);
-				}
-				catch(Exception ex){
-					System.out.println("Custom Fail:"+ex.toString()+";detail:"+ex.getCause());
+		Object listener =new Object () {
+			public void handle(@Payload String payload, @Header(AmqpHeaders.CHANNEL) Channel channel,
+							   @Header(AmqpHeaders.DELIVERY_TAG) Long deliveryTag) throws Exception {
+				try {
+					//String body = payload;
+					//String id=new String(message.getMessageProperties().getHeaders().get("io_id").toString());
+					String xml = "<request><message>"+payload.toString()+"</message></request>" ;
+					boolean result = restClient.send(xml);
+					//StreamResult result=client.customSendAndReceive(new String(message));
+					//if (result.toString().toLowerCase().contains("fault")){channel.basicNack(0, false, false);}
+					//System.out.println(result.toString());
+					if (result=false){
+						channel.basicNack(deliveryTag,false,true);
+					}
+				} catch (Exception ex) {
+					System.out.println("Custom Fail:" + ex.toString() + ";detail:" + ex.getCause());
 				}
 			}
 		};
@@ -120,7 +112,7 @@ public class SampleAmqpSimpleApplication extends SpringBootServletInitializer  {
 		container.setMessageListener(adapter);
 		container.setQueueNames(queue);
 		return container;
-	}
+	};
 	
 
 	public static void main(String[] args) throws Exception {

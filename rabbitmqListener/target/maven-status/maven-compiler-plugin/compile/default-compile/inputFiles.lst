@@ -1,3 +1,4 @@
-D:\app_management\mars\spring\rabbitmqListener\src\main\java\org\example\rabbitmqListener\amqp\Sender.java
-D:\app_management\mars\spring\rabbitmqListener\src\main\java\org\example\rabbitmqListener\amqp\WebServiceClient.java
-D:\app_management\mars\spring\rabbitmqListener\src\main\java\org\example\rabbitmqListener\amqp\SampleAmqpSimpleApplication.java
+F:\github\spring_rabbitmq_to_ws\rabbitmqListener\src\main\java\org\example\rabbitmqListener\amqp\SampleAmqpSimpleApplication.java
+F:\github\spring_rabbitmq_to_ws\rabbitmqListener\src\main\java\org\example\rabbitmqListener\amqp\RESTClientImpl.java
+F:\github\spring_rabbitmq_to_ws\rabbitmqListener\src\main\java\org\example\rabbitmqListener\amqp\Sender.java
+F:\github\spring_rabbitmq_to_ws\rabbitmqListener\src\main\java\org\example\rabbitmqListener\amqp\WebServiceClient.java
