@@ -1,0 +1,27 @@
+2017-06-23 18:19:52 INFO  AnnotationConfigApplicationContext:583 - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@7e774085: startup date [Fri Jun 23 18:19:52 MSK 2017]; root of context hierarchy
+2017-06-23 18:19:53 INFO  RESTClientImpl:30 - try to init request factory
+2017-06-23 18:19:53 INFO  DefaultLifecycleProcessor:343 - Starting beans in phase -2147482648
+2017-06-23 18:19:53 INFO  DefaultLifecycleProcessor:343 - Starting beans in phase 2147483647
+2017-06-23 18:19:53 INFO  CachingConnectionFactory:360 - Created new connection: connectionFactory#4c3f84db:0/SimpleConnection@18a0809c [delegate=amqp://admin@127.0.0.1:5672/1C, localPort= 57562]
+2017-06-23 18:19:53 INFO  Listener:32 - message: asdfasgd
+2017-06-23 18:19:54 ERROR Listener:39 - error: asdfasgd
+org.springframework.web.client.HttpServerErrorException: 500 Internal Server Error
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:66)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:700)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:653)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:613)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:531)
+	at org.example.rabbitmqListener.amqp.RESTClientImpl.send(RESTClientImpl.java:47)
+	at org.example.rabbitmqListener.amqp.Listener.onMessage(Listener.java:33)
+	at org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter.onMessage(MessageListenerAdapter.java:273)
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.doInvokeListener(AbstractMessageListenerContainer.java:822)
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.invokeListener(AbstractMessageListenerContainer.java:745)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.access$001(SimpleMessageListenerContainer.java:97)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$1.invokeListener(SimpleMessageListenerContainer.java:189)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.invokeListener(SimpleMessageListenerContainer.java:1276)
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.executeListener(AbstractMessageListenerContainer.java:726)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.doReceiveAndExecute(SimpleMessageListenerContainer.java:1219)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.receiveAndExecute(SimpleMessageListenerContainer.java:1189)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.access$1500(SimpleMessageListenerContainer.java:97)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1421)
+	at java.lang.Thread.run(Thread.java:748)

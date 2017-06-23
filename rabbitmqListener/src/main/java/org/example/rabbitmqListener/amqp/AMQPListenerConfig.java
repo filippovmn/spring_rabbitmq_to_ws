@@ -19,14 +19,14 @@ package org.example.rabbitmqListener.amqp;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import org.apache.log4j.Logger;
-import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.amqp.core.Message;
-import org.springframework.amqp.core.MessageListener;
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.annotation.EnableRabbit;
+import org.springframework.amqp.rabbit.annotation.RabbitListenerConfigurer;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.listener.RabbitListenerEndpointRegistrar;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.amqp.support.AmqpHeaders;
@@ -40,7 +40,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Configuration
 @PropertySource("classpath:application.conf")
-public class AMQPListenerConfig  {
+public class AMQPListenerConfig {
 	
 	 Logger log= Logger.getLogger(AMQPListenerConfig.class);
 
@@ -88,62 +88,28 @@ public class AMQPListenerConfig  {
 	}
 
 	@Bean
+	public Listener listener(){
+		return new Listener();
+	}
+
+	@Bean
 	public Queue queue() {
 		return new Queue(queue);
 	}
 
-	/*@Bean
+	@Bean
 	public SimpleMessageListenerContainer container() {
 		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(
 				this.connectionFactory());
 		container.setAutoDeclare(true);
 		container.setRabbitAdmin(rabbitAdmin());
 		container.setQueueNames(queue);
-		Object listener =new Object () {
-			public void handle(@Payload String payload, @Header(AmqpHeaders.CHANNEL) Channel channel,
-							   @Header(AmqpHeaders.DELIVERY_TAG) Long deliveryTag) throws Exception {
-				try {
-					log.info(String.format("payload: {}",payload));
-					System.out.println(String.format("payload: {}",payload));
-					boolean result = restClient().send(payload.toString());
-					if (!restClient().send(payload.toString())){
-						channel.basicNack(deliveryTag,false,true);
-					}else{
-						channel.basicAck(deliveryTag,false);
-					}
-				} catch (Exception ex) {
-					System.out.println("Custom Fail:" + ex.toString() + ";detail:" + ex.getCause());
-					channel.basicNack(deliveryTag,false,true);
-				}
-			}
-		};
-		MessageListenerAdapter adapter = new MessageListenerAdapter(listener);
-		container.setMessageListener(adapter);
-		return container;
-	};*/
-	@Bean
-	public SimpleMessageListenerContainer container1() {
-		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(
-				this.connectionFactory());
-		container.setAutoDeclare(true);
-		container.setRabbitAdmin(rabbitAdmin());
-		container.setQueueNames(queue);
-		MessageListener listener =new MessageListener () {
-			public void onMessage(Message msg) {
-				try {
-					String body = new String(msg.getBody());
-					log.info(String.format("payload: %s",body));
-					//System.out.println(String.format("payload: %s",body));
-					restClient().send(body);
-				} catch (Exception e) {
-					log.error("Error in sending.",e);
-				}
-			}
-		};
-		MessageListenerAdapter adapter = new MessageListenerAdapter(listener);
+		container.setAcknowledgeMode(AcknowledgeMode.MANUAL);
+		MessageListenerAdapter adapter = new MessageListenerAdapter(listener());
 		container.setMessageListener(adapter);
 		return container;
 	};
+
 	@Override
 	public String toString() {
 		return "AMQPListenerConfig{" +
@@ -183,5 +149,9 @@ public class AMQPListenerConfig  {
 		result = 31 * result + (queue != null ? queue.hashCode() : 0);
 		result = 31 * result + (url != null ? url.hashCode() : 0);
 		return result;
+	}
+
+	public void configureRabbitListeners(RabbitListenerEndpointRegistrar rabbitListenerEndpointRegistrar) {
+
 	}
 }

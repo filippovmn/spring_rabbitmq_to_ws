@@ -3,6 +3,7 @@ package org.example.rabbitmqListener.amqp;
 import org.apache.log4j.Logger;
 import org.springframework.http.*;
 import org.springframework.http.client.ClientHttpRequestFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 
+@Component
 public class RESTClientImpl extends RestTemplate {
 
 	Logger log= Logger.getLogger(RESTClientImpl.class);
@@ -18,15 +20,15 @@ public class RESTClientImpl extends RestTemplate {
 		return url;
 	}
 
-	/*public void setUrl(String url) {
+	public void setUrl(String url) {
 		this.url = url;
-	}*/
+	}
 
 	private String url;
 
 	public RESTClientImpl(String url){
 		log.info("try to init request factory");
-		this.url=url;
+		this.setUrl(url);
 		ClientHttpRequestFactory factory= this.getRequestFactory();
 		try {
 			factory.createRequest(new URI(this.url), HttpMethod.POST);
