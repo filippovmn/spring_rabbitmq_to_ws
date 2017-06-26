@@ -54,7 +54,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>org.example.rabbitmqListener.amqp.application</mainClass>
+							<mainClass>org.example.rabbitmqListener.amqp.Application</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

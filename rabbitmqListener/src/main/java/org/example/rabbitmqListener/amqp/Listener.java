@@ -37,30 +37,7 @@ public class Listener implements ChannelAwareMessageListener {
             }
         }catch(Exception e){
             log.error("error: "+new String(message.getBody()),e);
-            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false,false);
+            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false,true);
         }
     }
-
-
-
-
-
-
-
-    /*public void handle2(@Payload String payload, @Header(AmqpHeaders.CHANNEL) Channel channel,
-                       @Header(AmqpHeaders.DELIVERY_TAG) Long deliveryTag) throws Exception {
-        try {
-            log.info(String.format("payload: {}",payload));
-            System.out.println(String.format("payload: {}",payload));
-            boolean result = restClient().send(payload.toString());
-            if (!restClient().send(payload.toString())){
-                channel.basicNack(deliveryTag,false,true);
-            }else{
-                channel.basicAck(deliveryTag,false);
-            }
-        } catch (Exception ex) {
-            System.out.println("Custom Fail:" + ex.toString() + ";detail:" + ex.getCause());
-            channel.basicNack(deliveryTag,false,true);
-        }
-    }*/
 }

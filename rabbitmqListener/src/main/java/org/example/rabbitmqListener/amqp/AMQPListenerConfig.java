@@ -75,12 +75,6 @@ public class AMQPListenerConfig {
 		return client;
 	};
 
-	/*@Bean
-	AmqpTemplate amqpTemplate()
-	{
-		return new RabbitTemplate(connectionFactory());
-	};*/
-
 	@Bean
 	public RabbitAdmin rabbitAdmin() {
 		RabbitAdmin rabbitAdmin = new RabbitAdmin(connectionFactory());

@@ -47,10 +47,11 @@ public class RESTClientImpl extends RestTemplate {
 		ResponseEntity<String> response=this.exchange(url,HttpMethod.POST,payload,String.class);
 		java.util.Date date=new java.util.Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss.SSS");
-		System.out.println("start:"+dateFormat.format(date.getTime()));
+		log.info("start:"+dateFormat.format(date.getTime()));
 		
 		if(response.getStatusCode()==HttpStatus.OK&&!response.getBody().toLowerCase().contains("fault")){
-			System.out.println("end:"+dateFormat.format(date.getTime()));
+			log.info("end:"+dateFormat.format(date.getTime()));
+			return true;
 		};
 		return false;
 	}
