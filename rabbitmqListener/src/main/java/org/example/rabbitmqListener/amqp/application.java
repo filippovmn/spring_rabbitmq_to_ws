@@ -5,7 +5,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 /**
  * Created by mfilippov on 2017-06-19.
  */
-public class application {
+public class Application {
     public static void main(String[] args) throws Exception {
         AnnotationConfigApplicationContext ctx =
                 new AnnotationConfigApplicationContext();
