@@ -3,7 +3,6 @@ package org.example.rabbitmqListener.amqp;
 import org.apache.log4j.Logger;
 import org.springframework.http.*;
 import org.springframework.http.client.ClientHttpRequestFactory;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

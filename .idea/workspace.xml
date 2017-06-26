@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70691d92-6829-4057-beb3-00f4a3584b3c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/loging.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/loging.log.1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/loging.log.2" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/AMQPListenerConfig.java" afterPath="$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/AMQPListenerConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/Listener.java" afterPath="$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/Listener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/RESTClientImpl.java" afterPath="$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/RESTClientImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/rabbitmqListener/target/" />
@@ -25,22 +23,21 @@
       <file leaf-file-name="AMQPListenerConfig.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/AMQPListenerConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="73" column="32" lean-forward="false" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
+            <state relative-caret-position="-17">
+              <caret line="22" column="68" lean-forward="true" selection-start-line="22" selection-start-column="68" selection-end-line="22" selection-end-column="68" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3103#3104#0" expanded="true" />
-                <element signature="e#3131#3132#0" expanded="true" />
+                <element signature="e#2645#2646#0" expanded="true" />
+                <element signature="e#2673#2674#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Listener.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Listener.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/Listener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+            <state relative-caret-position="136">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.conf" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application.conf" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rabbitmqListener/src/main/resources/application.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="41" lean-forward="false" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+            <state relative-caret-position="119">
+              <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -86,9 +83,9 @@
         <option value="$PROJECT_DIR$/rabbitmqListener/pom.xml" />
         <option value="$PROJECT_DIR$/loging.log" />
         <option value="$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/Application.java" />
+        <option value="$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/RESTClientImpl.java" />
         <option value="$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/AMQPListenerConfig.java" />
         <option value="$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/Listener.java" />
-        <option value="$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/RESTClientImpl.java" />
       </list>
     </option>
   </component>
@@ -769,9 +766,8 @@
         <state relative-caret-position="2057">
           <caret line="135" column="76" lean-forward="false" selection-start-line="135" selection-start-column="76" selection-end-line="135" selection-end-column="76" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3103#3104#0" expanded="true" />
-            <element signature="e#3131#3132#0" expanded="true" />
+            <element signature="e#2645#2646#0" expanded="true" />
+            <element signature="e#2673#2674#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -813,7 +809,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -823,9 +819,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3103#3104#0" expanded="true" />
-            <element signature="e#3131#3132#0" expanded="true" />
+            <element signature="e#2645#2646#0" expanded="true" />
+            <element signature="e#2673#2674#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -843,7 +838,7 @@
         <state relative-caret-position="629">
           <caret line="52" column="10" lean-forward="true" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -861,9 +856,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3103#3104#0" expanded="true" />
-            <element signature="e#3131#3132#0" expanded="true" />
+            <element signature="e#2645#2646#0" expanded="true" />
+            <element signature="e#2673#2674#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -972,43 +966,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/Listener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/AMQPListenerConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="73" column="32" lean-forward="false" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3103#3104#0" expanded="true" />
-            <element signature="e#3131#3132#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/RESTClientImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rabbitmqListener/src/main/resources/application.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="41" lean-forward="false" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+        <state relative-caret-position="119">
+          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/AMQPListenerConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="22" column="68" lean-forward="true" selection-start-line="22" selection-start-column="68" selection-end-line="22" selection-end-column="68" />
+          <folding>
+            <element signature="e#2645#2646#0" expanded="true" />
+            <element signature="e#2673#2674#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rabbitmqListener/src/main/java/org/example/rabbitmqListener/amqp/Listener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

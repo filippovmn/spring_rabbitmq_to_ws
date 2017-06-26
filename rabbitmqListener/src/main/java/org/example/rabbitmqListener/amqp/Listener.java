@@ -3,18 +3,10 @@ package org.example.rabbitmqListener.amqp;
 import com.rabbitmq.client.Channel;
 import org.apache.log4j.Logger;
 import org.springframework.amqp.core.Message;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.ChannelAwareMessageListener;
-import org.springframework.amqp.support.AmqpHeaders;
-import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.handler.annotation.Header;
-import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-
-//import org.springframework.messaging.handler.annotation.Header;
 
 /**
  * Created by mfilippov on 2017-06-23.
